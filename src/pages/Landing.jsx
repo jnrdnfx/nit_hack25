@@ -62,7 +62,7 @@ const Landing = () => {
       <section className="hero-section">
         <div className="hero-content">
           <h1 style={{}}>Welcome to FakeCheck</h1>
-          <p style={{fontFamily:"merriweather, serif", fontSize:"25px"}}>Fake news spreads fast and distorts the truth. Our platform helps you cut through the noise by detecting and filtering unreliable content. Using smart verification and trusted sources, we make sure you see only credible, fact-checked stories. Stay informed — the right way.
+          <p style={{fontFamily:"merriweather, serif", fontSize:"25px"}}>Fake news spreads fast and distorts the truth. Our platform helps you cut through the noise by detecting and filtering unreliable content using <b style={{color:"#743200ff",fontWeight:"800"}}>cutting-edge AI</b>. Using smart verification and trusted sources, we make sure you see only credible, fact-checked stories. Stay informed - the right way.
 </p>
           <button className="learn-more-btn" onClick={handleLearnMore}>
             Learn More

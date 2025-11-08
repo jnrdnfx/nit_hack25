@@ -5,8 +5,8 @@ html, body, #root {
   padding: 0;
   width: 100%;
   min-height: 100%;
-  background: #0019a8;
-  background: radial-gradient(circle, rgba(0, 25, 168, 1) 0%, rgba(255, 214, 171, 1) 100%);
+  background: #a8a3ff;
+background: radial-gradient(circle, rgba(168, 163, 255, 1) 0%, rgba(9, 9, 121, 1) 90%);
   font-family: "Poppins", sans-serif;
 }
 
