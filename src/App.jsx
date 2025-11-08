@@ -1,22 +1,56 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Header from "./components/Header";
+import LeftFeed from "./components/LeftFeed";
+import RightPanel from "./components/RightPanel";
+import Profile from "./pages/Profile";
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import "./styles/homepage.css";
+import "@fontsource/poppins";
+import "@fontsource/poppins/600.css";
 
-function App() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center p-6">
-      <h1 className="text-4xl font-bold text-blue-600 mb-4">FakeCheck</h1>
-      <p className="text-gray-700 mb-6 max-w-xl">
-        Verify the credibility of news articles instantly using AI-powered analysis.
-      </p>
-      <input
-        type="text"
-        placeholder="Paste news URL or text here..."
-        className="border border-gray-300 p-3 w-full max-w-md rounded-md mb-4"
-      />
-      <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md">
-        Verify
-      </button>
+const HomePage = () => (
+  <>
+    <Header />
+    <div className="homepage">
+      <div>
+        <LeftFeed />
+      </div>
+      <aside>
+        <RightPanel />
+      </aside>
     </div>
+  </>
+);
+
+const App = () => {
+  const isAuthenticated = () => {
+    return !!localStorage.getItem("fakecheck_auth");
+  };
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+        <Route
+          path="/home"
+          element={isAuthenticated() ? <HomePage /> : <Navigate to="/login" replace />}
+        />
+
+        <Route
+          path="/profile"
+          element={isAuthenticated() ? <Profile /> : <Navigate to="/login" replace />}
+        />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

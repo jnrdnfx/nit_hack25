@@ -1,0 +1,223 @@
+
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background: #0019a8;
+  background: radial-gradient(circle, rgba(0, 25, 168, 1) 0%, rgba(255, 214, 171, 1) 100%);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Layout */
+/* homepage.css */
+
+.homepage {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Left Feed takes more space */
+.homepage > div {
+  flex: 2;
+  min-width: 0;
+  overflow-y: auto;
+  height: 80vh; /* makes it fill remaining screen space */
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/* Right Panel takes smaller space */
+.homepage > aside {
+  flex: 1.5;
+  min-width: 300px;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 10px;
+  padding-top: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.253);
+}
+
+
+/* For scrolling inside each column */
+.homepage > div::-webkit-scrollbar,
+.homepage > aside::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+/* Left feed pane */
+.left-feed {
+  border: #ffffff 8px solid;
+  flex: 1;
+  width: 90%; /* use full available width */
+  background: #74bcff;
+  border-radius: 20px;
+  padding: 10px;
+  margin-left: 1px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.308);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+/* horizontal pills row with overflow scroll */
+.pills-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-left: 5px;
+}
+.pill {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.312);
+}
+.pill.active {
+  background: #1d4ed8;
+  color: white;
+  border-color: rgba(255,255,255,0.06);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.308);
+}
+
+/* Scrollable posts list inside left pane */
+.posts-list {
+  overflow-y: auto;
+  padding: 10px;
+  /* ensure it scrolls independently */
+}
+
+/* each post */
+.post {
+  background: #fff;
+  border-radius: 15px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.303);
+  margin-bottom: 10px;
+}
+.post .meta {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+.post .title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.post .excerpt {
+  color: #374151;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.post .actions {
+  display:flex;
+  gap: 8px;
+  align-items:center;
+}
+
+/* comment pane inside post */
+.comment-panel {
+  margin-top: 8px;
+  border-top: 1px dashed #e5e7eb;
+  padding-top: 8px;
+
+}
+
+/* Right panel */
+.right-panel {
+  background: #2400b4;
+  border-radius: 15px;
+  padding: 12px;
+  padding-right: 20px;
+  box-shadow: 0 10px 12px rgba(0,0,0,0.06);
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  
+}
+.right-panel:hover {
+  box-shadow: 0 14px 20px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+    transition: all 0.8s ease;
+}
+
+/* input region */
+.input-area textarea, .input-area input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  box-sizing:border-box;
+  font-size: 14px;
+}
+.input-area:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/* submit button */
+.btn {
+  padding: 8px 12px;
+  background: #1d4ed8;
+  color: white;
+  border-radius: 6px;
+  cursor:pointer;
+  border: none;
+}
+
+/* Result pane (collapsible, appears after analysis) */
+.result-pane {
+  margin-top: 8px;
+  margin-right: -7px;
+  border-radius: 15px;
+  border: 1px solid #e6edf8;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(209, 221, 255, 0.89), #efe3ff);
+  overflow-y: auto;
+  max-height: 420px; /* scroll inside if content large */
+}
+
+/* credibility badge */
+.cred-badge {
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:600;
+}
+.cred-true { background:#d1fae5; color:#065f46; }
+.cred-uncertain { background:#fff7ed; color:#92400e; }
+.cred-false { background:#fee2e2; color:#991b1b; }
+
+/* profile dropdown */
+.profile-menu {
+  position:absolute;
+  right:16px;
+  top:56px;
+  background:white;
+  padding:10px;
+  border-radius:8px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  width: 260px;
+  z-index: 60;
+}
+.profile-menu h4 { margin:0 0 8px 0; font-size:14px; }
+.profile-menu .small { font-size:12px; color:#6b7280; }
+
+/* small helpers */
+.row { display:flex; align-items:center; gap:8px; }
+.space-between { display:flex; justify-content:space-between; align-items:center; }

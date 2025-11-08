@@ -23,12 +23,20 @@ a:hover {
 }
 
 body {
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Stack Sans Headline', sans-serif;
+  font-family: 'Merriweather', serif;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  background: #425eff;
+  background: radial-gradient(circle, rgba(66, 94, 255, 1) 0%, rgba(255, 214, 171, 1) 100%);
+  color: #111111;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 
 h1 {
   font-size: 3.2em;
